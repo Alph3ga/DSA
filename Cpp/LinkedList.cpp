@@ -40,7 +40,7 @@ template <typename T> class Singly_Linked_List{
 	
 	/**
 	* push a value to the end of the linked list
-	* adds another node linked to the current tail node in O(n) time
+	* adds another node linked to the current tail node in constant time
 	* @param val the value to be pushed into the list
 	* @returns the index of the node that the value is stored in
 	*/
@@ -58,6 +58,17 @@ template <typename T> class Singly_Linked_List{
 		last= node;
 		
 		return this.length++; 
+	}
+	
+	/**
+	* link another list to the end of the linked list
+	* adds another node linked to the current tail node in constant time
+	* @param List the Singly_Linked_List instance to be pushed into the list
+	*/
+	void push(Singly_Linked_List List){
+		this.tail->ptr= List.head;
+		this.tail= List.tail;
+		this.length+=List.length;
 	}
 	
 	/**
